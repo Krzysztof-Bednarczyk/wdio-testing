@@ -4,8 +4,9 @@
   "description": "Example testing framework for WebdriverIO",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio",
-    "env": "env-cmd -f .env.prod npx wdio",
+    "test": "npx wdio config/wdio.local.conf.js",
+    "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
+    "docker": "docker-compose up -d && npx wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "npx allure generate ./allure-results --clean && npx allure open"
   },
   "keywords": [
