@@ -12,6 +12,13 @@
     "postinstall": "husky install",
     "precommit": "npm run pretty && git add ."
   },
+    "husky": {
+      "hooks": {
+        "pre-commit": "precommit"
+      }
+    }
+ ,
+
   "keywords": [
     "WebdriverIO",
     "Udemy",
