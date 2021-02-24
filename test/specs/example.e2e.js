@@ -9,7 +9,7 @@ describe('My Login application', () => {
           "SuperSecretPassword!");
                                 expect(SecurePage.flashAlert).toBeExisting();
         expect(SecurePage.flashAlert).toHaveTextContaining(
-            "You logged into a secure area!");
+            "You logged into a secure area! ");
     });
 });
 
