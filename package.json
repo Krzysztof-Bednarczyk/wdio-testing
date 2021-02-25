@@ -8,17 +8,10 @@
     "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
     "docker": "docker-compose up -d && npx wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "npx allure generate ./allure-results --clean && npx allure open",
-    "pretty": "npx prettier --write",
+    "pretty": "npx prettier --write ./test/**/*",
     "postinstall": "husky install",
     "precommit": "npm run pretty && git add ."
   },
-    "husky": {
-      "hooks": {
-        "pre-commit": "precommit"
-      }
-    }
- ,
-
   "keywords": [
     "WebdriverIO",
     "Udemy",
