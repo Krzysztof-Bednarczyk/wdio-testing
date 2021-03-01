@@ -8,12 +8,13 @@
     "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
     "docker": "docker-compose up -d && npx wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "npx allure generate ./allure-results --clean && npx allure open",
-    "pretty": "npx prettier --write ./test/**/*",
-    "precommit": "npm run pretty && git add ."
+    "pretty": "prettier --write ./test/**/*",
+    "precommit": "npm run pretty && npm run linter && git add .",
+    "linter": "eslint ./test/**/* --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretty",
+      "pre-commit": "npm run precommit",
       "pre-push": "npm test"
     }
   },
@@ -42,6 +43,9 @@
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-wdio": "^7.0.0",
     "husky": "^4.3.8",
     "prettier": "2.2.1"
   },
