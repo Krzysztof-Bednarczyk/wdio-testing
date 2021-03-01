@@ -4,11 +4,10 @@ import SecurePage from '../pageobjects/secure.page';
 describe('My Login application', () => {
 	it('should login with valid credentials', () => {
 		LoginPage.open();
-
 		LoginPage.login('tomsmith', 'SuperSecretPassword!');
 		expect(SecurePage.flashAlert).toBeExisting();
 		expect(SecurePage.flashAlert).toHaveTextContaining(
-			' logged into a secure area!'
+			'logged into a secure area!'
 		);
 	});
 });
