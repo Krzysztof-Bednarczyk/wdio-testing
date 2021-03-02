@@ -6,10 +6,9 @@
   "scripts": {
     "test": "wdio config/wdio.local.conf.js",
     "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
-    "docker": "docker-compose up -d && npx wdio config/wdio.docker.conf.js && docker-compose down",
+    "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "allure generate ./allure-results --clean && npx allure open",
-    "pretty": "prettier --write ./test/**/*",
-    "precommit": "npm run pretty && git add . && npm run linter",
+    "precommit": "npm run linter && git add .",
     "linter": "eslint ./test/**/* --fix"
   },
   "husky": {
@@ -44,10 +43,8 @@
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
     "eslint": "^7.20.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-wdio": "^7.0.0",
-    "husky": "^4.3.8",
-    "prettier": "2.2.1"
+    "eslint-config-prettier": "^8.1.0",
+    "husky": "^4.3.8"
   },
   "dependencies": {
     "wdio-docker-service": "^3.1.0"
