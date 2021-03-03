@@ -109,3 +109,6 @@ allure-results
 
 # Environment variables
 .env*
+
+#screenshots
+*.png
