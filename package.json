@@ -8,7 +8,6 @@
     "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "allure generate ./allure-results --clean && npx allure open",
-    "precommit": "npm run linter && git add .",
     "linter": "eslint ./test/**/* --fix"
   },
   "husky": {
