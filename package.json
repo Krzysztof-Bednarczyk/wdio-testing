@@ -8,14 +8,19 @@
     "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "allure generate ./allure-results --clean && npx allure open",
-    "precommit": "npm run linter && git add .",
     "linter": "eslint ./test/**/* --fix"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "./test/**/*": [
+      "eslint --fix",
+      "git add ."
+    ]
   },
   "keywords": [
     "WebdriverIO",
@@ -44,7 +49,8 @@
     "env-cmd": "^10.1.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.1.0",
-    "husky": "^4.3.8"
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4"
   },
   "dependencies": {
     "wdio-docker-service": "^3.1.0"
