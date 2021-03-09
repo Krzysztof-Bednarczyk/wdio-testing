@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio config/wdio.local.conf.js",
-    "browserstack": "env-cmd -f .env.prod npx wdio config/wdio.browserstack.conf.js",
+    "browserstack": "env-cmd -f .env.prod wdio config/wdio.browserstack.conf.js",
+    "circleci": "wdio config/wdio.circleci.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "allure generate ./allure-results --clean && npx allure open",
     "linter": "eslint ./test/**/* --fix"

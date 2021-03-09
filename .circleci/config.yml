@@ -21,5 +21,5 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run linter
-      - run: npm run circle
+      - run: npm run circleci
   
