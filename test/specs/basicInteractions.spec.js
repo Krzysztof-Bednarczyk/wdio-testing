@@ -1,5 +1,4 @@
-/* eslint-disable max-lines-per-function */
-import {expect as expectChai} from 'chai';
+import { expect as expectChai } from 'chai';
 
 describe('Using Webdriver.io should enable to ', () => {
 	beforeEach(() => {
@@ -8,7 +7,7 @@ describe('Using Webdriver.io should enable to ', () => {
 
 	it(`visit the bank website and verify it't title`, () => {
 		expect(browser).toHaveTitle(
-			'Zero - Personal Banking - Loans - Credit Cards'
+			'Zero - Personal Banking - Loans - Credit Cards',
 		);
 	});
 
@@ -29,10 +28,9 @@ describe('Using Webdriver.io should enable to ', () => {
 	});
 
 	it('verify the correct number of elements on page', () => {
-		const elementsExpectedValue = 4,
-			// eslint-disable-next-line sort-vars
-			bankingFeatures = $$('#online_banking_features>.span3');
+		const bankingFeatures = $$('#online_banking_features>.span3');
 		bankingFeatures.forEach((element) => element.waitForExist());
+		const elementsExpectedValue = 4;
 		expectChai(bankingFeatures.length).to.equal(elementsExpectedValue);
 	});
 
@@ -54,8 +52,8 @@ describe('Using Webdriver.io should enable to ', () => {
 
 	it('set browser window size', () => {
 		const dimentions = {
-			'height': 768,
-			'width': 1600
+			height: 768,
+			width: 1600,
 		};
 		browser.setWindowSize(dimentions.width, dimentions.height);
 	});
