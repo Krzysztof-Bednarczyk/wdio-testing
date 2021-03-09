@@ -5,7 +5,7 @@ exports.config = {
     ...config,
 
     ...{
-        hostname: 'selenium-hub',
+        host: 'selenium-hub',
         port: 4444,
         path: '/',
         capabilities: [{
