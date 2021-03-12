@@ -29,8 +29,6 @@ jobs:
           key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm run linter
   test:
-    docker:
-      - image: circleci/node:current-browsers-legacy
     steps:
       - run: npm run circleci
   
