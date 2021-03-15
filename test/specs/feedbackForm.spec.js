@@ -11,7 +11,7 @@ describe('When visiting Zero Bank Web App', () => {
         expect(feedbackForm).toBeVisible();
     });
 
-    it('You are able to send feedback through form', () => {
+    it('You are able to send feedback', () => {
         $('form .form-inputs').waitForExist();
         $('#name').setValue('Krzysztof');
         $('#email').setValue('Krzysztof@wp.pl');
