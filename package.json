@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio config/wdio.local.conf.js",
-    "test-API": "mocha ./test/api/*",
+    "test-api": "mocha ./test/api/*",
     "browserstack": "env-cmd -f .env.prod wdio config/wdio.browserstack.conf.js",
     "circleci": "wdio config/wdio.circleci.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
@@ -15,7 +15,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run test-API && npm test"
+      "pre-push": "npm run test-api && npm test"
     }
   },
   "lint-staged": {
