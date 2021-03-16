@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable max-statements */
 describe('When on Zero Bank website', () => {
     beforeEach(() => {
@@ -5,38 +6,39 @@ describe('When on Zero Bank website', () => {
         $('#searchTerm').waitForExist();
     });
 
-    it('You have the ability to search and receive results', () => {
-        const searchQuery = 'Bank';
-        $('#searchTerm').setValue(searchQuery);
-        browser.keys('Enter');
-        const expectedURL = `http://zero.webappsecurity.com/search.html?searchTerm=${searchQuery}`;
-        const expectedTitle = 'Search Results:';
-        const expectedMessage = `The following pages were found for the query: ${searchQuery}`;
-        const searchResultList = $('ul');
-        const resultTitle = $('h2').getText();
-        const resultMessage = $('.top_offset').getText().split('\n')[4];
+    [
+        {
+            title: 'You have the ability to search and receive results',
+            searchQuery: 'Bank',
+            expectedURL: 'http://zero.webappsecurity.com/search.html?searchTerm=Bank',
+            expectedTitle: 'Search Results:',
+            expectedMessage: 'The following pages were found for the query: Bank',
+        },
+        {
+            title: 'You can perform an invalid search',
+            searchQuery: 'invalid',
+            expectedURL: 'http://zero.webappsecurity.com/search.html?searchTerm=invalid',
+            expectedTitle: 'Search Results:',
+            expectedMessage: 'No results were found for the query: invalid',
+        },
 
-        expect(browser).toHaveUrl(expectedURL);
-        expect(resultTitle).toEqual(expectedTitle);
-        expect(resultMessage).toEqual(expectedMessage);
-        expect(searchResultList).toBeVisible();
-    });
+    ].forEach(({
+        title, searchQuery, expectedURL, expectedTitle, expectedMessage,
+    }) => {
 
-    it('You can perform an invalid search', () => {
-        const searchQuery = 'invalid';
-        $('#searchTerm').setValue(searchQuery);
-        browser.keys('Enter');
-        const expectedURL = `http://zero.webappsecurity.com/search.html?searchTerm=${searchQuery}`;
-        const expectedTitle = 'Search Results:';
-        const expectedMessage = `No results were found for the query: ${searchQuery}`;
-        const searchResultList = $('ul');
-        const resultTitle = $('h2').getText();
-        const resultMessage = $('.top_offset').getText().split('\n')[4];
+        it(title, () => {
+            $('#searchTerm').setValue(searchQuery);
+            browser.keys('Enter');
+            const searchResultList = $('ul');
+            const resultTitle = $('h2').getText();
+            const resultMessage = $('.top_offset').getText().split('\n')[4];
 
-        expect(browser).toHaveUrl(expectedURL);
-        expect(resultTitle).toEqual(expectedTitle);
-        expect(resultMessage).toEqual(expectedMessage);
-        expect(searchResultList).toBeVisible();
+            expect(browser).toHaveUrl(expectedURL);
+            expect(resultTitle).toEqual(expectedTitle);
+            expect(resultMessage).toEqual(expectedMessage);
+            expect(searchResultList).toBeVisible();
+        });
+
     });
 
 });
