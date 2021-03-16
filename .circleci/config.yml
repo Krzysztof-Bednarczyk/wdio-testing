@@ -28,5 +28,6 @@ jobs:
             - ~/usr/local/lib/node_modules
           key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm run linter
+      - run: npm run test-api
       - run: npm run circleci
   
