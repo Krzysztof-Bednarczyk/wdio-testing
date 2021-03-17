@@ -52,8 +52,8 @@ describe('Using Webdriver.io should enable to ', () => {
 
 	it('set browser window size', () => {
 		const dimentions = {
-			height: 768,
 			width: 1600,
+			height: 768,
 		};
 		browser.setWindowSize(dimentions.width, dimentions.height);
 	});
