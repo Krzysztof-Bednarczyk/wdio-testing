@@ -39,7 +39,7 @@ describe('When on Zero Bank Web App You can filter transactions', () => {
     it('by amount', () => {
         const fromAmount = '60';
         $('#aa_fromAmount').setValue(fromAmount);
-        const toAmount = '1200'
+        const toAmount = '1200';
         $('#aa_toAmount').setValue(toAmount);
         $('button[type="submit"]').click();
         $('#filtered_transactions_for_account tbody').waitForExist();
@@ -59,7 +59,7 @@ describe('When on Zero Bank Web App You can filter transactions', () => {
         $('#aa_description').setValue('random text');
         $('button[type="submit"]').click();
         $('#filtered_transactions_for_account').waitForExist();
-        const results = $('#filtered_transactions_for_account .well')
+        const results = $('#filtered_transactions_for_account .well');
         expect(results).toHaveText('No results.');
     });
 
