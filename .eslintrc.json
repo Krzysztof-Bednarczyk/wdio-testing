@@ -21,6 +21,6 @@
     },
     "rules": {
         "class-methods-use-this": "off",
-        "semi": [2, "always"]      
+        "semi": ["error", "always"]      
     }
 }
