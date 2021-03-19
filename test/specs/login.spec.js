@@ -1,13 +1,13 @@
-import LoginPage from '../pageobjects/pages/LoginPage';
+import HomePage from '../pageobjects/pages/HomePage';
 
 describe('When visiting the Zero Bank Web App', () => {
 
+    let LoginPage;
+
     beforeEach(() => {
         browser.reloadSession();
-        browser.url('http://zero.webappsecurity.com/');
-        $('#signin_button').waitForExist();
-        $('#signin_button').click();
-        $('#login_form').waitForExist();
+        HomePage.open();
+        LoginPage = HomePage.navigateToLoginPage();
     });
 
     it('the error message is displayed when You login with invalid credentails', () => {

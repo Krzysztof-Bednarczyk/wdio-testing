@@ -2,6 +2,10 @@ import Page from '../page';
 
 class LoginPage extends Page {
 
+    get loginForm(){
+        return  $('#login_form');
+    }
+
     get loginInput(){
         return $('#user_login');
     };
