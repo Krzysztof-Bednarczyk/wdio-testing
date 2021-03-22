@@ -5,4 +5,4 @@ steps:
     command: 'custom'
     customCommand: 'test'
     workingDir: '$(solutionDirectory)'
-- template: tasks/publish-test-results.yml
+- template: publish-test-results.yml
