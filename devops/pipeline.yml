@@ -1,0 +1,23 @@
+name: $(date:yyyyMMdd)$(rev:.r)
+pr:
+  branches:
+    include:
+    - main
+    - develop
+    - release/*
+    - hotfix/*
+    - feature/*
+    - pr/*
+resources:
+- repo: self
+variables:
+  debug: 'true'
+stages:
+  - template: stages/validate.yml
+    parameters:
+      stageName: 'Validation'
+      stageDisplayName: 'Validation Stage'
+  - template: stages/test.yml
+    parameters:
+      stageName: 'Testing'
+      stageDisplayName: 'Testing Stage'
