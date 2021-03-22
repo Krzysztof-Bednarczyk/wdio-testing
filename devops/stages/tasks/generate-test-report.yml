@@ -1,5 +1,7 @@
 steps:
-- task: AllureGenerate@1
+- task: Npm@1
+  displayName: 'Generate test report'
   inputs:
-    resultsDir: 'allure-results'
-    targetDir: 'allure-report'
+    command: 'custom'
+    customCommand: 'run allure'
+    workingDir: '$(solutionDirectory)'
