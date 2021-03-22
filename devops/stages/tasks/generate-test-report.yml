@@ -1,0 +1,7 @@
+steps:
+- task: Npm@1
+  displayName: 'Generate test report'
+  inputs:
+    command: 'custom'
+    customCommand: 'run allure'
+    workingDir: '$(solutionDirectory)'

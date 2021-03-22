@@ -9,7 +9,7 @@
     "browserstack": "env-cmd -f .env.prod wdio config/wdio.browserstack.conf.js",
     "circleci": "wdio config/wdio.circleci.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
-    "allure": "allure generate ./allure-results --clean && npx allure open",
+    "allure": "allure generate ./allure-results --clean",
     "linter": "eslint ./test/**/*.js --fix"
   },
   "husky": {
