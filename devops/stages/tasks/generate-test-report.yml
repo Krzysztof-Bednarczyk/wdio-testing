@@ -9,3 +9,9 @@ steps:
   inputs:
     resultsDir: 'allure-results'
     targetDir: 'allure-report/$(Build.BuildNumber)'
+- task: Npm@1
+  displayName: 'Open test report'
+  inputs:
+    command: 'custom'
+    customCommand: 'run allure-open'
+    workingDir: '$(solutionDirectory)'

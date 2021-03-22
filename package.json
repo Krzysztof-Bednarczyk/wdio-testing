@@ -10,6 +10,7 @@
     "circleci": "wdio config/wdio.circleci.conf.js",
     "docker": "docker-compose up -d && wdio config/wdio.docker.conf.js && docker-compose down",
     "allure": "allure generate ./allure-results --clean",
+    "allure-open":"allure open",
     "linter": "eslint ./test/**/*.js --fix"
   },
   "husky": {
