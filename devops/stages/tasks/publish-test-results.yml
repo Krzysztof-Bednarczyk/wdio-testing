@@ -1,6 +1,8 @@
 steps:
-- task: PublishHtmlReport@1
-  displayName: 'Publish HTML Test Report'
+- task: PublishTestResults@2
+  displayName: 'Publish test results to Azure Pipelines'
   inputs:
-    reportDir: '$(testReportsDirectory)/*.html'
+    testResultsFormat: 'xUnit'
+    testResultsFiles: '$(testReportsDirectory)/*.html' 
+    failTaskOnFailedTests: true
   condition: always()
