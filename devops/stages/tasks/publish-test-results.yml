@@ -3,6 +3,6 @@ steps:
   displayName: 'Publish test results to Azure Pipelines'
   inputs:
     testResultsFormat: 'xUnit'
-    testResultsFiles: '$(testReportsDirectory)/*.xml' 
+    testResultsFiles: '$(testReportsDirectory)/*.html' 
     failTaskOnFailedTests: true
   condition: always()
