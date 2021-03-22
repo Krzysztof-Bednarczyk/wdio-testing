@@ -1,0 +1,26 @@
+parameters:
+  - name: 'stageName'
+    displayName: 'Stage Name'
+    type: string
+    default: 'Stage Name'
+  - name: 'stageDisplayName'
+    displayName: 'Stage Display Name'
+    type: string
+    default: 'Stage Display Name'
+
+stages:
+- stage: '${{parameters.stageName}}'
+  displayName: '${{parameters.stageDisplayName}}'
+  variables:
+    solutionDirectory: '$(System.DefaultWorkingDirectory)'
+    testReportsDirectory: $(solutionDirectory)/allure-results
+    npmCachePath: $(solutionDirectory)/.npm   
+  jobs:
+    - job: Test
+      displayName: 'Test'
+      continueOnError: false
+      pool:
+        vmImage: 'windows-2019'
+      steps:
+      - template: tasks/test-api.yml
+      - template: tasks/test-ui.yml

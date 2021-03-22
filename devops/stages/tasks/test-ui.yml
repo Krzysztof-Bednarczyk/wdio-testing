@@ -1,0 +1,8 @@
+steps:
+- task: Npm@1
+  displayName: 'Run UI tests'
+  inputs:
+    command: 'custom'
+    customCommand: 'test'
+    workingDir: '$(solutionDirectory)'
+- template: tasks/publish-test-results.yml
