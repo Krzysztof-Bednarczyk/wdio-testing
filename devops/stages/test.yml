@@ -13,7 +13,7 @@ stages:
   displayName: '${{parameters.stageDisplayName}}'
   variables:
     solutionDirectory: '$(System.DefaultWorkingDirectory)'
-    testReportsDirectory: $(solutionDirectory)/allure-report/$(Build.BuildNumber)
+    testReportsDirectory: $(solutionDirectory)/allure-report
     npmCachePath: $(solutionDirectory)/.npm   
   jobs:
     - job: Test
