@@ -13,11 +13,7 @@ resources:
 variables:
   debug: 'true'
 stages:
-  - template: stages/validate.yml
-    parameters:
-      stageName: 'Validation'
-      stageDisplayName: 'Validation Stage'
   - template: stages/test.yml
     parameters:
       stageName: 'Testing'
-      stageDisplayName: 'Testing Stage'
+      stageDisplayName: 'Building and Testing Stage'

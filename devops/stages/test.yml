@@ -17,10 +17,12 @@ stages:
     npmCachePath: $(solutionDirectory)/.npm   
   jobs:
     - job: Test
-      displayName: 'Test'
+      displayName: 'Build, Analyze & Test'
       continueOnError: false
       pool:
         vmImage: 'windows-2019'
       steps:
+      - template: tasks/npm-build.yml
+      - template: tasks/analyze.yml
       - template: tasks/test-api.yml
       - template: tasks/test-ui.yml
