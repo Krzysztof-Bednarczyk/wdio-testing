@@ -106,6 +106,7 @@ dist
 # Test reports
 allure-report
 allure-results
+test-reports
 
 # Environment variables
 .env*
