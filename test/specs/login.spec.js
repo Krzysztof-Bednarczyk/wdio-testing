@@ -8,7 +8,7 @@ describe('When visiting the Zero Bank Web App', () => {
         $('#login_form').waitForExist();
     });
 
-    it('the error message is displayed when You login with invalid credentails', () => {
+    it('[ID-21006] the error message is displayed when You login with invalid credentails', () => {
         $('#user_login').waitForExist();
         $('#user_login').setValue('invalid');
         $('#user_password').waitForExist();
@@ -19,7 +19,7 @@ describe('When visiting the Zero Bank Web App', () => {
         expect(errorAlert).toBeVisible();
     });
 
-    it('you are able to login with valid credentials', () => {
+    it('ID-21555: you are able to login with valid credentials', () => {
         $('#user_login').waitForExist();
         $('#user_login').setValue('username');
         $('#user_password').waitForExist();
