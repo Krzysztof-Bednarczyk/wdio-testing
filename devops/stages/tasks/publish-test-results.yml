@@ -2,7 +2,7 @@ steps:
 - task: PublishTestResults@2
   displayName: 'Publish test results to Azure Pipelines'
   inputs:
-    testResultsFormat: 'xUnit'
+    testResultsFormat: 'jUnit'
     testResultsFiles: '$(testReportsDirectory)/*.xml' 
     failTaskOnFailedTests: true
   condition: always()
