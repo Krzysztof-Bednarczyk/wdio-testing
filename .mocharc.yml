@@ -1,6 +1,7 @@
 require: '@babel/register'
 reporter: 'mocha-junit-reporter'
-reporter-options:
+reporter-option:
   - 'mochaFile=./test-reports/api-test-results.xml'
+  - 'testCaseSwitchClassnameAndName=true'
 spec:
   - './test/api/*.js'
