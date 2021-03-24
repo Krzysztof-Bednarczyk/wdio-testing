@@ -5,4 +5,5 @@ steps:
     testResultsFormat: 'jUnit'
     testResultsFiles: '$(testReportsDirectory)/*.xml' 
     failTaskOnFailedTests: true
+    testRunTitle: 'My random name'
   condition: always()
