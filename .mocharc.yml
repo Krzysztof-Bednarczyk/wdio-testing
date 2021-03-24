@@ -1,1 +1,6 @@
 require: '@babel/register'
+reporter: 'mocha-junit-reporter'
+reporter-options:
+  - 'mochaFile=./test-reports/api-test-results.xml'
+spec:
+  - './test/api/*.js'
